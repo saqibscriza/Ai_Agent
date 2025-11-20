@@ -3,7 +3,7 @@ import Navbar from '../navbar/Navbar.jsx'
 import SideBar from '../Sidebar/SideBar.jsx'
 import { Outlet } from "react-router-dom";
 
-const Layout = ({ children }) => {
+const Layout = () => {
 
   const [isSidebarSmall, setIsSidebarSmall] = useState(false);
 
@@ -26,15 +26,15 @@ const Layout = ({ children }) => {
       <div className="layout " style={{ backgroundColor: '#4E5586', overflowX: 'hidden' }}>
         <div className="container-ms">
           <div className="row" >
-            {/* Sidebar column */}
-            <div className={isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}>
+            <div style={{position:''}} className={isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}>
               <SideBar isSidebarSmall={isSidebarSmall} />
             </div>
-            {/* Right-side column */}
             <div
-              className={isSidebarSmall ? "my-col-11 navbarPage-area" : "col-10 navbarPage-area"}
+              className={isSidebarSmall ? "my-col-11 navbarPage-area" : "col-10 navbarPage-area"} 
               style={{ backgroundColor: '#fff', borderRadius: '20px', }}>
-              <Navbar ForResponsive={ForResponsive} />
+               <div style={{position:''}}>
+                <Navbar ForResponsive={ForResponsive} />
+              </div>
               <div className="main-content">
                 <div className="page-content">
                   <Outlet />

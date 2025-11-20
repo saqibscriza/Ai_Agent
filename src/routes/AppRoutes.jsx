@@ -9,11 +9,14 @@ import CallMonitoring from '../component/pages/callMonitoring/callMonitoring.jsx
 import BillingSubscription from '../component/pages/billingSubscription/billingSubscription.jsx';
 import Setting from '../component/pages/setting/setting.jsx';
 import LogInPage from '../component/logIn/logInPage.jsx';
+import AddAgentIndustry from '../component/pages/agent/addAgentIndustry.jsx';
+import AgentUseCase from '../component/pages/agent/agentUseCase.jsx';
+import CompleteAgent from '../component/pages/agent/completeAgent.jsx';
 
 const AppRoutes = () => {
     return (
         <>
-            <Routes>
+            <Routes >
                 <Route path="/login" element={<LogInPage />} />
                 <Route element={<Layout />}>
                     <Route path="/" element={<Dashboard />} />
@@ -23,21 +26,13 @@ const AppRoutes = () => {
                     <Route path="/callmonitoring" element={<CallMonitoring />} />
                     <Route path="/billingsubscription" element={<BillingSubscription />} />
                     <Route path="/setting" element={<Setting />} />
+
+                    <Route path="/addagentindustry" element={<AddAgentIndustry />} />
+                    <Route path="/agentusecase" element={<AgentUseCase />} />
+                    <Route path="/completeagent" element={<CompleteAgent />} />
+                
                 </Route>
             </Routes>
-
-            {/* <Layout>
-                <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/agent" element={<Agent />} />
-                    <Route path="/vendormanagement" element={<VendorMangement />} />
-                    <Route path="/voicemodel" element={<VoiceModel />} />
-                    <Route path="/callmonitoring" element={<CallMonitoring />} />
-                    <Route path="/billingsubscription" element={<BillingSubscription />} />
-                    <Route path="/setting" element={<Setting />} />
-                    <Route path="/login" element={<LogInPage />} />
-                </Routes>
-            </Layout> */}
         </>
     )
 }
