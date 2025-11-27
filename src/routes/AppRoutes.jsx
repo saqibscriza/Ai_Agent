@@ -12,6 +12,13 @@ import LogInPage from '../component/logIn/logInPage.jsx';
 import AddAgentIndustry from '../component/pages/agent/addAgentIndustry.jsx';
 import AgentUseCase from '../component/pages/agent/agentUseCase.jsx';
 import CompleteAgent from '../component/pages/agent/completeAgent.jsx';
+import ChildAgent from '../component/pages/agent/childAgent/childAgent.jsx';
+import SuperChildAgent from '../component/pages/agent/superChildAgent/superChildAgent.jsx';
+import KnowledgeBase from '../component/pages/agent/knowledgeBase/knowledgeBase.jsx';
+import Analysis from '../component/pages/agent/analysis/analysis.jsx';
+import Test from '../component/pages/agent/tests/test.jsx';
+import Widget from '../component/pages/agent/widget/widget.jsx';
+import AiCallingAgent from '../component/pages/agent/AiCallingagent.jsx';
 
 const AppRoutes = () => {
     return (
@@ -26,11 +33,19 @@ const AppRoutes = () => {
                     <Route path="/callmonitoring" element={<CallMonitoring />} />
                     <Route path="/billingsubscription" element={<BillingSubscription />} />
                     <Route path="/setting" element={<Setting />} />
-
+                        {/* Child Routes  */}
                     <Route path="/addagentindustry" element={<AddAgentIndustry />} />
                     <Route path="/agentusecase" element={<AgentUseCase />} />
                     <Route path="/completeagent" element={<CompleteAgent />} />
-                
+                        {/*Super Child Routes  */}
+                    <Route path="/childagent" element={<ChildAgent />} />
+                    <Route path="/superchildagent" element={<SuperChildAgent />} />
+                    <Route path="/knowledgebase" element={<KnowledgeBase />} />
+                    <Route path="/analysis" element={<Analysis />} />
+                    <Route path="/test" element={<Test />} />
+                    <Route path="/Widget" element={<Widget />} />
+                    <Route path="/aicallingagent" element={<AiCallingAgent />} />
+
                 </Route>
             </Routes>
         </>

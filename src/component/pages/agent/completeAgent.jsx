@@ -96,6 +96,7 @@ const completeAgent = () => {
                 <div className="row d-flex">
                     <div className="d-flex justify-content-center">
                         <div>
+                           <Link to='/childagent'>
                             <button
                                 type="button"
                                 className="btn btn-md playground me-1 mt-2"
@@ -108,6 +109,7 @@ const completeAgent = () => {
                                 }}>
                                 Create Agent
                             </button>
+                           </Link>
                         </div>
                         <div className=" ">
                             <Link to="/agentusecase" >

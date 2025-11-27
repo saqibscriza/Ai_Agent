@@ -81,7 +81,9 @@ justify-content: flex-start;
 .my-col-1{
   flex: 0 0 auto;
   width: 6.333333%;
+
 }
+
 .my-col-11{
   flex: 0 0 auto;
   width: 93.666667%;
@@ -92,6 +94,8 @@ justify-content: flex-start;
 .col-10 {
   transition: all 0.3s ease-out; 
 }
+
+
 /* SideBar area  */
 
 
@@ -208,6 +212,15 @@ justify-content: flex-start;
 }
 /* LOGIN PAGE CSS STARTS HERE ----------  */
 
+
+/* Sidebar and Navbar fixed  */
+.navbarPage-area{
+  margin-left: 17%;
+}
+.navbarPage-area2{
+  margin-left: 6.5%;
+}
+/* Sidebar and Navbar fixed  */
 
 
 /* NAVBAR MEDIA QUERY --------------------- */
