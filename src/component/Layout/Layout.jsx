@@ -23,22 +23,23 @@ const Layout = () => {
   }, []);
 
   return (
+    // 9319661147
     <>
       <div className="layout " style={{ backgroundColor: '#4E5586', overflowX: 'hidden' }}>
         <div className="container-ms">
           <div className="row" >
-            <div style={{ position:'fixed' }} className={isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}>
+            <div style={{ position:'fixed' }} className={`  ${isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}`}>
               <SideBar isSidebarSmall={isSidebarSmall} />
             </div>
             <div
               className={isSidebarSmall ? "my-col-11 navbarPage-area2" : "col-10 navbarPage-area"}
-              style={{ backgroundColor: '#fff', borderRadius: '20px'}}>
-              <div className='' style={{ position: 'sticky' }}>
+              style={{ backgroundColor: '#fff', borderRadius: '25px 0px 0px 0px'}}>
+              <div className='' style={{ position:'' }}>
                 <Navbar ForResponsive={ForResponsive} />
               </div>
-              <div className="main-content">
-                <div className="page-content">
-                  <Outlet />
+              <div className="main-content" style={{height:''}}>
+                <div className="page-content" >
+                  <Outlet /> 
                 </div>
               </div>
             </div>

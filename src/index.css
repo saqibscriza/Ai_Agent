@@ -8,6 +8,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* main layout  */
+
+/* main layout  */
 
 /* SideBar area  */
 
@@ -43,7 +46,7 @@ justify-content: flex-start;
   margin-left: 10px;
 }
 .ul-adjustSmall{
-  text-align: center;
+  /* text-align: center; */
 }
 .li-adjust{
   list-style-type: none;
@@ -74,14 +77,14 @@ justify-content: flex-start;
 }
 .activeBgColor{
     background-color: #E2DEF9;
-    border-radius: 11px;
-    width: 97%;
+    border-radius: 11px ;
+    width: 100%;
+    /* width: 97%; */
     padding: 5px 18px 5px 18px;
 }
 .my-col-1{
   flex: 0 0 auto;
   width: 6.333333%;
-
 }
 
 .my-col-11{
@@ -117,8 +120,8 @@ justify-content: flex-start;
 }
 .search-bar .form-control,
 .search-bar .input-group-text {
-  border-radius: 30px !important;
-  padding: 8px 16px !important;
+  border-radius: 30px ;
+  padding: 8px 16px ;
   /* box-shadow: none !important; */
 }
 .search-input {
@@ -147,23 +150,39 @@ justify-content: flex-start;
   object-position: center;
 }
 /* Navbar area  */
+ /* Main layout area  */ */
 
 
-/* Main layout area  */
-
-
-/* Main layout area  */
-
-
-.icon-wrapper {
-  position: relative;
-  /* display: flex; */
-  align-items: center;
+.ul-adjustSmall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  list-style: none;
 }
 
+.ul-adjustSmall .li-adjust {
+  width: 100%;
+  display: flex;
+  justify-content: center;   
+  position: relative;        
+  padding: 5px 0;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.li-adjust {
+  position: relative;  
+}
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 .hover-label {
   position: absolute;
-  left: 40px;
+  left: 45px;
   top: 50%;
   transform: translateY(-50%);
   background: #ffffff;
@@ -178,15 +197,13 @@ justify-content: flex-start;
   transition: all 0.2s ease;
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
   border: 1px solid #eee;
+  z-index: 999;
 }
-
-/* Show on hover */
-.icon-wrapper:hover .hover-label {
+/* Show tooltip when li is hovered */
+.li-adjust:hover .hover-label {
   opacity: 1;
-  left: 50px; 
+  left: 55px;
 }
-
-
 /* LOGIN PAGE CSS STARTS HERE ----------  */
 .orange-color {
   color: #ff8057;
@@ -210,15 +227,16 @@ justify-content: flex-start;
 .loginImg img {
   width: 23%;
 }
+
 /* LOGIN PAGE CSS STARTS HERE ----------  */
 
 
 /* Sidebar and Navbar fixed  */
 .navbarPage-area{
-  margin-left: 17%;
+  margin-left: 16.36%;
 }
 .navbarPage-area2{
-  margin-left: 6.5%;
+  margin-left: 6.2%;
 }
 /* Sidebar and Navbar fixed  */
 

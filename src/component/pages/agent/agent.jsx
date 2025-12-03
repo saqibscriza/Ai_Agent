@@ -49,7 +49,7 @@ const agent = () => {
             <div className="table-container px-3  table-responsive">
               <table className="table table-sm table-fixed">
                 <thead className=''>
-                  <tr className=' text-color-000' style={{ color: '#FF7F57' }}>
+                  <tr className=' text-color-000' style={{ color: '#FF7F57', fontSize:'14px'  }}>
                     <th className='no-shrink ' style={{ width: '100%' }}>Name</th>
                     <th className='no-shrink ' style={{ width: '100%' }}>Created by</th>
                     <th className='no-shrink ' style={{ width: '100%' }}>Created at </th>
@@ -57,7 +57,7 @@ const agent = () => {
                   </tr>
                 </thead>
                 <tbody className='heading-14 align-middle greyTextColor greyText'>
-                  <tr className='heading-14' style={{ color: "#797D8C" }}>
+                  <tr className='heading-14' style={{ color: "#797D8C", fontSize:'14px'  }}>
                     <td className=' greyText pe-0 py-2 no-shrink '>My Data</td>
                     <td className=' greyText pe-0 py-2  no-shrink '>My Data</td>
                     <td className=' greyText pe-0 py-2 no-shrink '>My Data</td>
@@ -68,7 +68,8 @@ const agent = () => {
                             <path d="M18.2583 5.48333C19.7725 5.48333 21 4.25585 21 2.74167C21 1.22749 19.7725 0 18.2583 0C16.7441 0 15.5166 1.22749 15.5166 2.74167C15.5166 4.25585 16.7441 5.48333 18.2583 5.48333Z" fill="#797D8C" />
                             <path d="M10.5002 5.48333C12.0144 5.48333 13.2419 4.25585 13.2419 2.74167C13.2419 1.22749 12.0144 0 10.5002 0C8.98604 0 7.75854 1.22749 7.75854 2.74167C7.75854 4.25585 8.98604 5.48333 10.5002 5.48333Z" fill="#797D8C" />
                             <path d="M2.74169 5.48333C4.25589 5.48333 5.48338 4.25585 5.48338 2.74167C5.48338 1.22749 4.25589 0 2.74169 0C1.2275 0 0 1.22749 0 2.74167C0 4.25585 1.2275 5.48333 2.74169 5.48333Z" fill="#797D8C" />
-                          </svg></a>
+                          </svg>
+                          </a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#">Conversation History</a></li>
                           <li><a class="dropdown-item" href="#"> Duplicate Agent</a></li>

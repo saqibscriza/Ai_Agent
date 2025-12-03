@@ -19,6 +19,8 @@ import Analysis from '../component/pages/agent/analysis/analysis.jsx';
 import Test from '../component/pages/agent/tests/test.jsx';
 import Widget from '../component/pages/agent/widget/widget.jsx';
 import AiCallingAgent from '../component/pages/agent/AiCallingagent.jsx';
+import AddVendor from '../component/pages/vendorManagement/addVendor.jsx';
+import UpdateVendor from '../component/pages/vendorManagement/updateVendor.jsx';
 
 const AppRoutes = () => {
     return (
@@ -45,6 +47,8 @@ const AppRoutes = () => {
                     <Route path="/test" element={<Test />} />
                     <Route path="/Widget" element={<Widget />} />
                     <Route path="/aicallingagent" element={<AiCallingAgent />} />
+                    <Route path="/addvendor" element={<AddVendor />} />
+                    <Route path="/updatevendor" element={<UpdateVendor />} />
 
                 </Route>
             </Routes>

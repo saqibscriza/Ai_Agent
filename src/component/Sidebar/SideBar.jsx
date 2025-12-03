@@ -14,7 +14,6 @@ const SideBar = ({ isSidebarSmall }) => {
 
     return (
         <div>
-
             {
                 !isSidebarSmall ? (
                     <div className="container-fluid backgroundColorSidebar">
@@ -123,11 +122,11 @@ const SideBar = ({ isSidebarSmall }) => {
                                 </div>
                                 <div className="hr-line-small px-4"></div>
                             </div>
-                            <div className="row">
+                            <div className="row ">
                                 <div className="menuItems">
-                                    <ul className='ul-adjustSmall ps-1'>
+                                    <ul className='ul-adjustSmall ps-1 '>
                                         <li className={`li-adjust  ${active === 'dahsboard' ? 'activeBgColor' : ''}`} onClick={() => setActive('dahsboard')}>
-                                            <Link className='mt-1 icon-wrapper'  to="/">
+                                            <Link className='mt-1 icon-wrapper' to="/">
                                                 <svg className='mb-1' width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.80164 0.592981C9.79088 0.271463 10.8533 0.812807 11.1744 1.80172C11.4957 2.7908 10.9544 3.85308 9.96545 
                                         4.17456C8.9765 4.49591 7.91426 3.95461 7.59274 2.96553C7.27155 1.97658 7.81273
