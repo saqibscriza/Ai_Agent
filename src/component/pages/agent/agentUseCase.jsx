@@ -27,6 +27,9 @@ const Container = styled.div`
 .icon svg {
   transition: transform 0.3s ease;
 }
+
+
+
 `
 
 const agentUseCase = () => {
@@ -34,7 +37,7 @@ const agentUseCase = () => {
         <Container>
             <div className="container-fluid ps-1 pe-3 mt-3" style={{ width: '100%' }}>
                 <div className='breadcrumm p-1 '>
-                    <div className="row pt-2">
+                    <div className="row mt-margin-responsive pt-2">
                         <nav
                             style={{
                                 "--bs-breadcrumb-divider": "'>'"

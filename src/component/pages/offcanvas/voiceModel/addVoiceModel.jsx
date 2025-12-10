@@ -70,7 +70,7 @@ const Container = styled.div`
     width: 3.5em;
     height: 25px;
 }
-.my-form-check-input{
+.my-form-check-input:checked{
     background-color: #4E5586;
     border-color: #0d6efd;
 }
@@ -80,8 +80,11 @@ const Container = styled.div`
     padding: 2px 9px;
     font-size: 12px;
 }
-@media (max-width: 720px) {
-
+@media (max-width: 991px) {
+.mrgn-responisve p, button{
+    margin-left: 13px;
+    margin-top: 5px;
+}
 }
 `
 
@@ -111,7 +114,7 @@ const addVoiceModel = ({ data }) => {
                         <div>
                             {
                                 !checked ? (
-                                    <div>
+                                    <div className=''>
                                         <div style={{ backgroundColor: '#EEF5FE', padding: '12px', borderRadius: '8px' }}>
                                             <div className="row">
                                                 <div className="col-lg-2 pe-0">
@@ -120,9 +123,9 @@ const addVoiceModel = ({ data }) => {
                                                     </svg>
                                                 </div>
                                                 <div className="col-lg-10 ps-0">
-                                                    <div>
-                                                        <p className='mb-0'><b>Voice Design</b></p>
-                                                        <p style={{ fontSize: '14px' }}>Design an entirely new voice from a text prompt</p>
+                                                    <div className='mrgn-responisve'>
+                                                        <p className='mb-0 '><b>Voice Design</b></p>
+                                                        <p style={{ fontSize: '14px ' }}>Design an entirely new voice from a text prompt</p>
                                                     </div>
                                                     <div>
                                                         <button className='myBtn' style={{ fontSize: '14px' }} onClick={() => setChecked(true)}>Less than a Minute</button>
@@ -138,7 +141,7 @@ const addVoiceModel = ({ data }) => {
                                                     </svg>
                                                 </div>
                                                 <div className="col-lg-10 ps-0" >
-                                                    <div>
+                                                    <div className='mrgn-responisve'>
                                                         <p className='mb-0'><b>Instant Voice Clone</b></p>
                                                         <p style={{ fontSize: '14px' }}>Clone your voice with only 10 Seconds of Audio</p>
                                                     </div>
@@ -176,7 +179,7 @@ const addVoiceModel = ({ data }) => {
                                                     </svg>
                                                 </div>
                                                 <div className="col-lg-10 ps-0" >
-                                                    <div>
+                                                    <div className='mrgn-responisve'>
                                                         <p className='mb-0'><b>Professional Voice Clone</b></p>
                                                         <p style={{ fontSize: '14px' }}>Create the most realistic digital replica of your
                                                             voice. Requires at least 30 minutes of clean audio.</p>
@@ -199,8 +202,7 @@ const addVoiceModel = ({ data }) => {
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <div style={{ fontSize: "14px" }}>
-                                                        <p className='mb-0'>You need to be on at least the Creator plan
-                                                            to use Professional Voice Cloning</p>
+                                                        <p className='mb-0'>You need to be on at least the Creator plan to use Professional Voice Cloning</p>
                                                     </div>
                                                     <div className='mt-2'>
                                                         <button className='myBtn' style={{ fontSize: '14px', backgroundColor: '#4E5586', borderRadius: '5px', color: '#fff' }}>Subscribe</button>
@@ -218,14 +220,16 @@ const addVoiceModel = ({ data }) => {
                                                 <div className="col-lg-10 ps-0">
                                                     <div>
                                                         <div className="row">
-                                                            <div className="col-lg-6">
+                                                            <div className="col-lg-6 mrgn-responisve">
                                                                 <p className='mb-0 ' style={{ fontSize: '14px', }}><b>Voice Remixing (Alpha)</b></p>
                                                             </div>
                                                             <div className="col-lg-6 text-end">
                                                                 <button className='myBtn' style={{ fontSize: '14px', border: '1px solid #F6D693', backgroundColor: '#FFF3DA' }}>New</button>
                                                             </div>
                                                         </div>
+                                                        <div className='mrgn-responisve'>
                                                         <p style={{ fontSize: '14px' }}>Transform existing voices with text prompts to create new voices.</p>
+                                                        </div>
                                                     </div>
                                                     <div>
                                                         <button className='myBtn' style={{ fontSize: '14px' }} onClick={() => setVoiceRemix(!voiceRemix)}>Less than a Minute</button>
@@ -416,7 +420,7 @@ const addVoiceModel = ({ data }) => {
                                         </div>
                                     </div>
                                     <div style={{ border: '1px solid #E4E7EB', padding: '10px' }}>
-                                        <div className="" style={{height:"200px"}}>
+                                        <div className="" style={{ height: "200px" }}>
                                             <p style={{ color: '#797D8C', fontSize: '14' }}>Make this Voice elderly and tired</p>
                                         </div>
                                         <div className='d-flex justify-content-between'>
@@ -425,7 +429,7 @@ const addVoiceModel = ({ data }) => {
                                             </div>
                                             <div style={{ fontSize: '12px' }}>
                                                 <p>350 / 9,448 remaining
-                                                    <span  style={{backgroundColor:'#C3C3C3',padding:'5px',borderRadius:'22px', marginLeft:"3px"}}><svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <span style={{ backgroundColor: '#C3C3C3', padding: '5px', borderRadius: '22px', marginLeft: "3px" }}><svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M5.00025 0L0.29325 4.707C-0.09775 5.098 -0.09775 5.73 0.29325 6.121C0.68425 6.512 1.31625 6.512 1.70725 6.121L4.00025 3.828V11.414C4.00025 11.966 4.44725 12.414 5.00025 12.414C5.55325 12.414 6.00025 11.966 6.00025 11.414V3.828L8.29325 6.121C8.48825 6.316 8.74425 6.414 9.00025 6.414C9.25625 6.414 9.51225 6.316 9.70725 6.121C10.0983 5.73 10.0983 5.098 9.70725 4.707L5.00025 0Z" fill="white" />
                                                     </svg></span>
                                                 </p>

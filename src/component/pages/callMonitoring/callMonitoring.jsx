@@ -46,7 +46,7 @@ const callMonitoring = () => {
     <Container>
       <div className="container-fluid ps-1 pe-3 mt-3">
         <div className='breadcrumm  px-3' style={{}}>
-          <div className="row " >
+          <div className="row mt-margin-responsive " >
             <div className="col-lg-4 col-md-12 col-sm-12 ">
               <nav
                 className='pt-4'

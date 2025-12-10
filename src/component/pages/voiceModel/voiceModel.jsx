@@ -13,7 +13,6 @@ const Container = styled.div`
     border-radius: 10px;
     padding: 5px 8px;
     width: 71%;
-
 }
 @media (max-width: 720px) {
   .div-flex {
@@ -25,8 +24,21 @@ const Container = styled.div`
     margin-top: 8px ;
   }
 }
-
-
+@media (max-width: 991px) {
+  .breadcrumm {
+    margin-top: 10px !important;
+  }
+}
+@media (max-width: 1330px) {
+  .useVoice {
+    width: 80%;
+  }
+}
+@media (max-width: 1130px) {
+  .useVoice {
+    width: 100%;
+  }
+}
 `
 const voiceModel = () => {
 
@@ -35,7 +47,7 @@ const voiceModel = () => {
     <Container>
       <div className="container-fluid ps-1 pe-3 mt-3">
         <div className='breadcrumm p-1 px-3'>
-          <div className="row pt-2">
+          <div className="row mt-margin-responsive pt-2">
             <nav
               style={{
                 "--bs-breadcrumb-divider": "'>'"
@@ -54,8 +66,8 @@ const voiceModel = () => {
                 <p>Create and manage Voice Model</p>
               </div>
             </div>
-            <div className="col-lg-8 col-md-12 col-sm-12 ">
 
+            <div className="col-lg-8 col-md-12 col-sm-12 ">
               <div className='div-flex breadcrmBtn ' style={{ marginTop: '-8px' }}>
                 <div className="searchContent me-2">
                   <div className="input-group mb-3 search-bar">

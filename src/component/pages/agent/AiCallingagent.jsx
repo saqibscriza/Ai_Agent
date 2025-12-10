@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
 
+const Container = styled.div`
+
+
+`
 const AiCallingagent = () => {
     return (
-        <>
+        <Container>
             <div>
                 <div className='breadcrumm p-1 px-3 me-3'>
-                    <div className="row pt-2">
+                    <div className="row mt-margin-responsive pt-2">
                         <nav
                             style={{
                                 "--bs-breadcrumb-divider": "'>'"
@@ -24,7 +29,7 @@ const AiCallingagent = () => {
                 <div className="row">
                     <div className="col-lg-6">
                     </div>
-                    <div className="col-lg-6 col-md-6 " >
+                    <div className="col-lg-6 col-md-12 col-sm-12" >
                         <div className='me-5'>
                             <Link to="/childagent" style={{ float: 'right' }}>
                                 <button style={{ borderRadius: '25px', padding: '5px 20px', backgroundColor: '#f8f7f7' }} type="button" class="btn btn-md  playground  me-1 mt-3" > {'<'} &nbsp; Back</button>
@@ -43,7 +48,7 @@ const AiCallingagent = () => {
 
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 export default AiCallingagent

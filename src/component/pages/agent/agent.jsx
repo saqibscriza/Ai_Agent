@@ -1,12 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import styled from 'styled-components';
+
+const Container = styled.div`
+  .breadcrumm{
+  font-size: 14px;
+  background: #F9F9F9;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+ @media (max-width: 991px) {
+  .mt-margin-responsive {
+    margin-top: 80px !important;
+  }
+}
+ @media (max-width: 575px) {
+  .mt-margin-responsive {
+    margin-top: 120px !important;
+  }
+}
+`
+
+
 const agent = () => {
   return (
-    <>
+    <Container>
       <div className="container-fluid ps-1 pe-3 mt-3">
         <div className='breadcrumm p-1 px-3'>
-          <div className="row pt-2">
+          <div className="row mt-margin-responsive pt-2">
             <nav
               style={{
                 "--bs-breadcrumb-divider": "'>'"
@@ -37,8 +60,6 @@ const agent = () => {
                     </button>
                   </Link>
                 </div>
-
-                {/* <div><button type="button" class="btn  newAgent" ><Link to='./addagentindustry'>+ New Agent</Link></button></div> */}
               </div>
             </div>
           </div>
@@ -148,7 +169,7 @@ const agent = () => {
           </div>
         </div>
       </div>
-    </>
+    </Container>
   )
 }
 

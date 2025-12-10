@@ -27,6 +27,16 @@ const Container = styled.div`
 .icon svg {
   transition: transform 0.3s ease;
 }
+ @media (max-width: 991px) {
+  .mt-margin-responsive {
+    margin-top: 80px !important;
+  }
+}
+ @media (max-width: 575px) {
+  .mt-margin-responsive {
+    margin-top: 120px !important;
+  }
+}
 `
 const addAgentIndustry = () => {
 
@@ -34,7 +44,7 @@ const addAgentIndustry = () => {
         <Container>
             <div className="container-fluid ps-1 pe-3 mt-3" style={{ width: '100%' }}>
                 <div className='breadcrumm p-1 '>
-                    <div className="row pt-2">
+                    <div className="row mt-margin-responsive pt-2">
                         <nav
                             style={{
                                 "--bs-breadcrumb-divider": "'>'"

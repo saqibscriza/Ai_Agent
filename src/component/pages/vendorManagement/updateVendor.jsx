@@ -6,7 +6,7 @@ const updateVendor = () => {
      <>
                 <div className="container-fluid ps-1 pe-3 mt-3">
                     <div className='breadcrumm p-1 px-3'>
-                        <div className="row pt-2">
+                        <div className="row mt-margin-responsive pt-2">
                             <nav
                                 style={{ "--bs-breadcrumb-divider": "'>'" }}
                                 aria-label="breadcrumb">

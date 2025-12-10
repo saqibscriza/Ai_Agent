@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../navbar/Navbar.jsx'
 import SideBar from '../Sidebar/SideBar.jsx'
 import { Outlet } from "react-router-dom";
+import styled from 'styled-components';
 
+const Container = styled.div`
+
+.fixed-navbar{
+  background-color: #fff;
+  border-radius: 10px 0px 0px 0px;
+}
+`
 const Layout = () => {
 
   const [isSidebarSmall, setIsSidebarSmall] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const ForResponsive = (value) => {
     setIsSidebarSmall(value);
@@ -22,31 +31,45 @@ const Layout = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
   return (
-    // 9319661147
-    <>
+    
+    <Container>
       <div className="layout " style={{ backgroundColor: '#4E5586', overflowX: 'hidden' }}>
         <div className="container-ms">
           <div className="row" >
-            <div style={{ position:'fixed' }} className={`  ${isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}`}>
+            <div style={{ position: 'fixed' }} className={`${isSidebarSmall ? "my-col-1 p-0" : "col-2 p-0"}`}>
               <SideBar isSidebarSmall={isSidebarSmall} />
             </div>
             <div
               className={isSidebarSmall ? "my-col-11 navbarPage-area2" : "col-10 navbarPage-area"}
-              style={{ backgroundColor: '#fff', borderRadius: '25px 0px 0px 0px'}}>
-              <div className='' style={{ position:'' }}>
+              style={{ backgroundColor: "#fff", borderRadius: "25px 0px 0px 0px" }}>
+              <div className={`fixed-navbar ${isScrolled ? "scrolled" : ""}`} style={{ position: "fixed", width: "90%" }}>
                 <Navbar ForResponsive={ForResponsive} />
               </div>
-              <div className="main-content" style={{height:''}}>
-                <div className="page-content" >
-                  <Outlet /> 
+              <div className="main-content" style={{ marginTop: "80px" }}>
+                <div className="page-content">
+                  <Outlet />
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
-    </>
+    </Container>
   )
 }
 
@@ -59,12 +82,3 @@ export default Layout
 
 
 
-{/* <div className="col-2 p-0">
-            <SideBar />
-          </div>
-          <div className="col-10 navbarPage-area" style={{backgroundColor:'#fff', borderRadius:'20px'}}>
-            <Navbar ForResponsive={ForResponsive} />
-            <div className="main-content " >
-              <div className="page-content">{children}</div>
-            </div>
-          </div> */}
