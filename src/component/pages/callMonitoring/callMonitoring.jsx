@@ -13,7 +13,6 @@ const Container = styled.div`
     border-radius: 10px;
     padding: 5px 8px;
     width: 71%;
-
 }
 .sucessTable{
     background-color: #37C07E;
@@ -35,7 +34,12 @@ const Container = styled.div`
     margin-top: 8px ;
   }
 }
+@media (max-width: 625px) {
+  .my-offcanvas {
+   width: 100% ;
+  }
 
+}
 
 `
 
