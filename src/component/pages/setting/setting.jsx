@@ -27,15 +27,12 @@ const Container = styled.div`
 `
 const setting = () => {
   const [select, setSelect] = useState('update')
-// factorAuthentication
-// defaultSharingPreferences
-// manageSharing
-// update
+
   return (
     <Container>
       <div className='container-fluid ps-1 pe-3 mt-3'>
         <div className='breadcrumm  px-3' >
-          <div className="row " >
+          <div className="row mt-margin-responsive" >
             <div className="col-lg-4 col-md-12 col-sm-12 ">
               <nav
                 className='pt-3'
