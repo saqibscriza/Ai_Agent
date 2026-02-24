@@ -179,7 +179,7 @@ const LogInPage = () => {
                     <div className="col-md-6 col-sm-12 p-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '#F5F5F5', borderRadius: '30px 0px 0px 30px' }}>
                         <div style={{ borderRadius: '10px 0px 0px 10px' }}>
                             <div className="img-div ps-4 rounded-4" >
-                                <img src="./public/Image/cuate.svg" alt="login illustration" />
+                                <img src="./public/Image/cuate.svg" alt="login image" />
                             </div>
                         </div>
                     </div>
