@@ -43,6 +43,68 @@ const Container = styled.div`
 const voiceModel = () => {
 
   const [select, setSelect] = useState(false)
+
+  const voiceTableData = [
+    {
+      id: 1,
+      avatar: "./Image/Mask group (2).png",
+      title: "Jarnathan - warm, confident, versatile",
+      description: "Lorem Ipsum is simply dummy text of the printing...",
+      language: {
+        icon: "./Image/images of gandhi jayanti.jpeg",
+        name: "English"
+      },
+      category: "Conversational",
+      experience: "2 Year",
+      usage: "40.1K",
+      actionText: "Use Voice",
+      dropdownActions: [
+        "Copy Voice Link",
+        "Copy Voice ID",
+        "View Similar"
+      ]
+    },
+    {
+      id: 2,
+      avatar: "./Image/Mask group (2).png",
+      title: "Jarnathan - warm, confident, versatile",
+      description: "Lorem Ipsum is simply dummy text of the printing...",
+      language: {
+        icon: "./Image/images of gandhi jayanti.jpeg",
+        name: "English"
+      },
+      category: "Conversational",
+      experience: "2 Year",
+      usage: "40.1K",
+      actionText: "Use Voice",
+      dropdownActions: [
+        "Copy Voice Link",
+        "Copy Voice ID",
+        "View Similar"
+      ]
+    },
+    {
+      id: 3,
+      avatar: "./Image/Mask group (2).png",
+      title: "Jarnathan - warm, confident, versatile",
+      description: "Lorem Ipsum is simply dummy text of the printing...",
+      language: {
+        icon: "./Image/images of gandhi jayanti.jpeg",
+        name: "English"
+      },
+      category: "Conversational",
+      experience: "2 Year",
+      usage: "40.1K",
+      actionText: "Use Voice",
+      dropdownActions: [
+        "Copy Voice Link",
+        "Copy Voice ID",
+        "View Similar"
+      ]
+    }
+  ];
+
+
   return (
     <Container>
       <div className="container-fluid ps-1 pe-3 mt-3">
@@ -70,11 +132,11 @@ const voiceModel = () => {
             <div className="col-lg-8 col-md-12 col-sm-12 ">
               <div className='div-flex breadcrmBtn ' style={{ marginTop: '-8px' }}>
                 <div className="searchContent me-2">
-                  <div className="input-group mb-3 search-bar">
+                  {/* <div className="input-group mb-3 search-bar">
                     <input type="text" className="form-control my-form-control search-input" style={{ borderRadius: "5px", padding: '6px 16px', backgroundColor: '#fff', border: '1px solid #E9E9E9' }} placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                  </div>
+                  </div> */}
                 </div>
-                <div className='me-2'>
+                {/* <div className='me-2'>
                   <Link to="">
                     <button type="button" className="btn " style={{ border: '1px solid #E9E9E9', fontSize: '14px' }}>
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,8 +146,8 @@ const voiceModel = () => {
                       Trending
                     </button>
                   </Link>
-                </div>
-                <div className='me-2 responsive-mb-2'>
+                </div> */}
+                {/* <div className='me-2 responsive-mb-2'>
                   <Link to="">
                     <button type="button" className="btn " style={{ border: '1px solid #E9E9E9', fontSize: '14px' }}>
                       <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,14 +160,15 @@ const voiceModel = () => {
                       Filter
                     </button>
                   </Link>
-                </div>
-                <div>
+                </div> */}
+
+                {/* <div>
                   <Link data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <button type="button" className="btn newAgent">
                       + Create or Clone a Voice
                     </button>
                   </Link>
-                </div>
+                </div> */}
 
               </div>
             </div>
@@ -117,7 +180,52 @@ const voiceModel = () => {
             <div className="table-responsive px-3" style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
               <table className="table table-strip table-sm align-middle">
                 <tbody className='heading-14 align-middle greyTextColor greyText'>
-                  <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px' }}>
+                  {
+                    voiceTableData.map((row, index) => (
+                      <tr key={row.id} className='heading-14' style={{ color: "#797D8C", fontSize: '14px', border: 'none', backgroundColor: index % 2 === 0 ? "rgba(249, 249, 249, 1)" : "transparent" }}>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          <div>
+                            <img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src={row.avatar} alt="" />
+                          </div>
+                        </td>
+                        <td className=' greyText pe-0 py-2  no-shrink '>
+                          <p className='mb-0'><b>{row.title}</b></p>
+                          &nbsp;
+                          <p style={{ marginTop: '-16px' }}>{row.description}</p>
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          <div>
+                            <img style={{ width: '30px', height: '30px', borderRadius: '4px' }} src={row.language.icon} alt="" />
+                            <span className='ps-2'>{row.language.name}</span>
+                          </div>
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>{row.category}</td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>{row.experience}</td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>{row.usage}</td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          <p className='useVoice mb-0'>{row.actionText}</p>
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          <div class="dropdown my-dropdown ">
+                            <a class="btn btn-secondary my-btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <svg width="21" height="6" viewBox="0 0 21 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.2583 5.48333C19.7725 5.48333 21 4.25585 21 2.74167C21 1.22749 19.7725 0 18.2583 0C16.7441 0 15.5166 1.22749 15.5166 2.74167C15.5166 4.25585 16.7441 5.48333 18.2583 5.48333Z" fill="#797D8C" />
+                                <path d="M10.5002 5.48333C12.0144 5.48333 13.2419 4.25585 13.2419 2.74167C13.2419 1.22749 12.0144 0 10.5002 0C8.98604 0 7.75854 1.22749 7.75854 2.74167C7.75854 4.25585 8.98604 5.48333 10.5002 5.48333Z" fill="#797D8C" />
+                                <path d="M2.74169 5.48333C4.25589 5.48333 5.48338 4.25585 5.48338 2.74167C5.48338 1.22749 4.25589 0 2.74169 0C1.2275 0 0 1.22749 0 2.74167C0 4.25585 1.2275 5.48333 2.74169 5.48333Z" fill="#797D8C" />
+                              </svg>
+                            </a>
+                            <ul class="dropdown-menu" style={{ fontSize: '14px' }}>
+                              <li><a class="dropdown-item" href="#">Copy Voice Link</a></li>
+                              <li><a class="dropdown-item" href="#"> Copy Voice ID</a></li>
+                              <li><a class="dropdown-item" href="#">View Similar</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  }
+
+                  {/* <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px' }}>
                     <td className=' greyText pe-0 py-2 no-shrink '>
                       <div>
                         <img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src="./Image/Mask group (2).png" alt="" />
@@ -129,7 +237,6 @@ const voiceModel = () => {
                       <p style={{ marginTop: '-16px' }}>Lorem Ipsum is simply dummy text of the printing...</p>
                     </td>
                     <td className=' greyText pe-0 py-2 no-shrink '>
-                      {/* <p className='mb-0'></p> */}
                       <div>
                         <img style={{ width: '30px', height: '30px', borderRadius: '4px' }} src="./Image/images of gandhi jayanti.jpeg" alt="" />
                         <span className='ps-2'>English</span>
@@ -157,89 +264,8 @@ const voiceModel = () => {
                         </ul>
                       </div>
                     </td>
-                  </tr>
-                  <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px' }}>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <div>
-                        <img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src="./Image/Mask group (2).png" alt="" />
-                      </div>
-                    </td>
-                    <td className=' greyText pe-0 py-2  no-shrink '>
-                      <p className='mb-0'><b>Jarnathan - warm, confident, versatile</b></p>
-                      &nbsp;
-                      <p style={{ marginTop: '-16px' }}>Lorem Ipsum is simply dummy text of the printing...</p>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      {/* <p className='mb-0'></p> */}
-                      <div>
-                        <img style={{ width: '30px', height: '30px', borderRadius: '4px' }} src="./Image/images of gandhi jayanti.jpeg" alt="" />
-                        <span className='ps-2'>English</span>
-                      </div>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>Conversational</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>2 Year</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>40.1K</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <p className='useVoice mb-0'>Use Voice</p>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <div class="dropdown my-dropdown ">
-                        <a class="btn btn-secondary my-btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <svg width="21" height="6" viewBox="0 0 21 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.2583 5.48333C19.7725 5.48333 21 4.25585 21 2.74167C21 1.22749 19.7725 0 18.2583 0C16.7441 0 15.5166 1.22749 15.5166 2.74167C15.5166 4.25585 16.7441 5.48333 18.2583 5.48333Z" fill="#797D8C" />
-                            <path d="M10.5002 5.48333C12.0144 5.48333 13.2419 4.25585 13.2419 2.74167C13.2419 1.22749 12.0144 0 10.5002 0C8.98604 0 7.75854 1.22749 7.75854 2.74167C7.75854 4.25585 8.98604 5.48333 10.5002 5.48333Z" fill="#797D8C" />
-                            <path d="M2.74169 5.48333C4.25589 5.48333 5.48338 4.25585 5.48338 2.74167C5.48338 1.22749 4.25589 0 2.74169 0C1.2275 0 0 1.22749 0 2.74167C0 4.25585 1.2275 5.48333 2.74169 5.48333Z" fill="#797D8C" />
-                          </svg>
-                        </a>
-                        <ul class="dropdown-menu" style={{ fontSize: '14px' }}>
-                          <li><a class="dropdown-item" href="#">Copy Voice Link</a></li>
-                          <li><a class="dropdown-item" href="#"> Copy Voice ID</a></li>
-                          <li><a class="dropdown-item" href="#">View Similar</a></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px' }}>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <div>
-                        <img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src="./Image/Mask group (2).png" alt="" />
-                      </div>
-                    </td>
-                    <td className=' greyText pe-0 py-2  no-shrink '>
-                      <p className='mb-0'><b>Jarnathan - warm, confident, versatile</b></p>
-                      &nbsp;
-                      <p style={{ marginTop: '-16px' }}>Lorem Ipsum is simply dummy text of the printing...</p>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      {/* <p className='mb-0'></p> */}
-                      <div>
-                        <img style={{ width: '30px', height: '30px', borderRadius: '4px' }} src="./Image/images of gandhi jayanti.jpeg" alt="" />
-                        <span className='ps-2'>English</span>
-                      </div>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>Conversational</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>2 Year</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>40.1K</td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <p className='useVoice mb-0'>Use Voice</p>
-                    </td>
-                    <td className=' greyText pe-0 py-2 no-shrink '>
-                      <div class="dropdown my-dropdown ">
-                        <a class="btn btn-secondary my-btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <svg width="21" height="6" viewBox="0 0 21 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.2583 5.48333C19.7725 5.48333 21 4.25585 21 2.74167C21 1.22749 19.7725 0 18.2583 0C16.7441 0 15.5166 1.22749 15.5166 2.74167C15.5166 4.25585 16.7441 5.48333 18.2583 5.48333Z" fill="#797D8C" />
-                            <path d="M10.5002 5.48333C12.0144 5.48333 13.2419 4.25585 13.2419 2.74167C13.2419 1.22749 12.0144 0 10.5002 0C8.98604 0 7.75854 1.22749 7.75854 2.74167C7.75854 4.25585 8.98604 5.48333 10.5002 5.48333Z" fill="#797D8C" />
-                            <path d="M2.74169 5.48333C4.25589 5.48333 5.48338 4.25585 5.48338 2.74167C5.48338 1.22749 4.25589 0 2.74169 0C1.2275 0 0 1.22749 0 2.74167C0 4.25585 1.2275 5.48333 2.74169 5.48333Z" fill="#797D8C" />
-                          </svg>
-                        </a>
-                        <ul class="dropdown-menu" style={{ fontSize: '14px' }}>
-                          <li><a class="dropdown-item" href="#">Copy Voice Link</a></li>
-                          <li><a class="dropdown-item" href="#"> Copy Voice ID</a></li>
-                          <li><a class="dropdown-item" href="#">View Similar</a></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
+                  </tr> */}
+
                 </tbody>
               </table>
             </div>

@@ -90,7 +90,7 @@ const settingOff = ({ data }) => {
                             <div className="row mt-3">
                                 <div className="col-lg-10">
                                     <button className='saveBtn'>Save Changes</button>
-                                    <button className='saveBtn2 ms-2' >{'<'} Back</button>
+                                    <button className='saveBtn2 ms-2' data-bs-dismiss="offcanvas" aria-label="Close">{'<'} Back</button>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ const settingOff = ({ data }) => {
                             <div className="row mt-3">
                                 <div className="col-lg-10">
                                     <button className='saveBtn'>Save Changes</button>
-                                    <button className='saveBtn2 ms-2' >{'<'} Back</button>
+                                    <button className='saveBtn2 ms-2' data-bs-dismiss="offcanvas" aria-label="Close">{'<'} Back</button>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ const settingOff = ({ data }) => {
                             <div className="row mt-3">
                                 <div className="col-lg-10">
                                     <button className='saveBtn'>Verify & Enable</button>
-                                    <button className='saveBtn2 ms-2' >{'<'} Back</button>
+                                    <button className='saveBtn2 ms-2' data-bs-dismiss="offcanvas" aria-label="Close">{'<'} Back</button>
                                 </div>
                             </div>
                         </div>

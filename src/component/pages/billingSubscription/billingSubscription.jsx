@@ -50,7 +50,7 @@ const billingSubscription = () => {
           <div className="row " >
             <div className="col-lg-4 col-md-12 col-sm-12 ">
               <nav
-                className='pt-4'
+                className='pt-4 pb-2'
                 style={{
                   "--bs-breadcrumb-divider": "'>'"
                 }}
@@ -64,13 +64,14 @@ const billingSubscription = () => {
             </div>
             <div className="col-lg-8 col-md-12 col-sm-12 ">
               <div className='div-flex breadcrmBtn ' >
-                <div className="searchContent me-2">
+
+                {/* <div className="searchContent me-2">
                   <div className="input-group mb-3 search-bar pt-3">
                     <input type="text" className="form-control my-form-control search-input " style={{ borderRadius: "5px", padding: '6px 16px', backgroundColor: '#fff', border: '1px solid #E9E9E9' }} placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                   </div>
-                </div>
+                </div> */}
 
-                <div className='me-2 responsive-mb-2 pt-3'>
+                {/* <div className='me-2 responsive-mb-2 pt-3'>
                   <Link to="">
                     <button type="button" className="btn " style={{ border: '1px solid #E9E9E9', fontSize: '14px' }}>
                       <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +84,8 @@ const billingSubscription = () => {
                       Filter
                     </button>
                   </Link>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </div>
@@ -96,7 +98,6 @@ const billingSubscription = () => {
 
         <div>
           <div className='mt-3' style={{ border: '1px solid #aaa', borderRadius: '10px', backgroundColor: '#e8e6f3' }}>
-
             <div className="row">
               <div className="col-lg-4 col-md-8 col-sm-12">
                 <div style={{ marginTop: '15px' }}>

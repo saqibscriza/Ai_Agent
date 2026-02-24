@@ -46,6 +46,43 @@ const Container = styled.div`
 const callMonitoring = () => {
 
   const [select, setSelect] = useState(false)
+
+  const callHistoryTableData = [
+    {
+      id: 1,
+      dateTime: "Nov 7, 2025, 3:07 PM",
+      userName: "Sanoj Kumar",
+      duration: "0:50",
+      callCount: 4,
+      status: "Successful"
+    },
+    {
+      id: 2,
+      dateTime: "Nov 7, 2025, 3:07 PM",
+      userName: "Sanoj Kumar",
+      duration: "0:50",
+      callCount: 4,
+      status: "Successful"
+    },
+    {
+      id: 3,
+      dateTime: "Nov 7, 2025, 3:07 PM",
+      userName: "Sanoj Kumar",
+      duration: "0:50",
+      callCount: 4,
+      status: "Successful"
+    },
+    {
+      id: 4,
+      dateTime: "Nov 7, 2025, 3:07 PM",
+      userName: "Sanoj Kumar",
+      duration: "0:50",
+      callCount: 4,
+      status: "Successful"
+    },
+  ];
+
+
   return (
     <Container>
       <div className="container-fluid ps-1 pe-3 mt-3">
@@ -91,7 +128,6 @@ const callMonitoring = () => {
             </div>
           </div>
         </div>
-
         <div>
           <div style={{ color: '#7162DB', fontSize: '16px' }}>
             <p className='pt-3'><b>Conversation History</b></p>
@@ -106,7 +142,30 @@ const callMonitoring = () => {
                     <th className='no-shrink ' style={{ width: '' }}>Call Status</th>
                   </tr>
                 </thead>
-                <tbody className='heading-14 align-middle greyTextColor greyText'>
+                {
+                  callHistoryTableData.map((item,index) => (
+                    <tbody key={item.id} className='heading-14 align-middle greyTextColor greyText'>
+                      <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px', border: 'none', backgroundColor: index % 2 === 0 ? "rgba(249, 249, 249, 1)" : "transparent" }}>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          {item.dateTime}
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          {item.userName}
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          {item.duration}
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink '>
+                          {item.callCount}
+                        </td>
+                        <td className=' greyText pe-0 py-2 no-shrink ' data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                          <p className='sucessTable mb-0'>Successfull</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  ))
+                }
+                {/* <tbody className='heading-14 align-middle greyTextColor greyText'>
                   <tr className='heading-14' style={{ color: "#797D8C", fontSize: '14px' }}>
                     <td className=' greyText pe-0 py-2 no-shrink '>
                       Nov 7, 2025, 3:07 PM
@@ -124,8 +183,7 @@ const callMonitoring = () => {
                       <p className='sucessTable mb-0'>Successfull</p>
                     </td>
                   </tr>
-
-                </tbody>
+                </tbody> */}
               </table>
             </div>
 
@@ -149,7 +207,7 @@ const callMonitoring = () => {
             </div>
             <div className="col-8">
               <div className='d-flex text-end justify-content-end me-3'>
-                <p style={{ border: '1px solid #ECECFA', borderRadius: "36px", padding: '6px 16px', fontSize: '12px', backgroundColor:'#ECECFA' }}><span><b>Conversation ID</b></span> -  conv_9201k9ebxs78fnnahqs2d5732vba</p>
+                <p style={{ border: '1px solid #ECECFA', borderRadius: "36px", padding: '6px 16px', fontSize: '12px', backgroundColor: '#ECECFA' }}><span><b>Conversation ID</b></span> -  conv_9201k9ebxs78fnnahqs2d5732vba</p>
                 <p>
                   <svg width="24" height="24" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8747 5.66675C14.8747 4.49315 13.9233 3.54175 12.7497 3.54175H7.08301C5.90941 3.54175 4.95801 4.49315 4.95801 5.66675V14.1667C4.95801 15.3404 5.90941 16.2917 7.08301 16.2917H12.7497C13.9233 16.2917 14.8747 15.3404 14.8747 14.1667V5.66675ZM13.458 5.66675C13.458 5.27555 13.1409 4.95841 12.7497 4.95841H7.08301C6.69181 4.95841 6.37467 5.27555 6.37467 5.66675V14.1667C6.37467 14.558 6.69181 14.8751 7.08301 14.8751H12.7497C13.1409 14.8751 13.458 14.558 13.458 14.1667V5.66675Z" fill="#CCCCCC" />

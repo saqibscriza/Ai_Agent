@@ -21,14 +21,15 @@ import Widget from '../component/pages/agent/widget/widget.jsx';
 import AiCallingAgent from '../component/pages/agent/AiCallingagent.jsx';
 import AddVendor from '../component/pages/vendorManagement/addVendor.jsx';
 import UpdateVendor from '../component/pages/vendorManagement/updateVendor.jsx';
+import DashboardProfile from '../component/pages/dashboard/dashboardProfile.jsx';
 
 const AppRoutes = () => {
     return (
         <>
             <Routes >
-                <Route path="/login" element={<LogInPage />} />
+                <Route path="/" element={<LogInPage />} />
                 <Route element={<Layout />}>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/agent" element={<Agent />} />
                     <Route path="/vendormanagement" element={<VendorMangement />} />
                     <Route path="/voicemodel" element={<VoiceModel />} />
@@ -37,8 +38,9 @@ const AppRoutes = () => {
                     <Route path="/setting" element={<Setting />} />
                         {/* Child Routes  */}
                     <Route path="/addagentindustry" element={<AddAgentIndustry />} />
-                    <Route path="/agentusecase" element={<AgentUseCase />} />
-                    <Route path="/completeagent" element={<CompleteAgent />} />
+                    <Route path="/agentusecase/:id" element={<AgentUseCase />} />
+                    <Route path="/completeagent/:id" element={<CompleteAgent />} />
+                    <Route path="/dashboardprofile" element={<DashboardProfile />} />
                         {/*Super Child Routes  */}
                     <Route path="/childagent" element={<ChildAgent />} />
                     <Route path="/superchildagent" element={<SuperChildAgent />} />
@@ -48,7 +50,7 @@ const AppRoutes = () => {
                     <Route path="/Widget" element={<Widget />} />
                     <Route path="/aicallingagent" element={<AiCallingAgent />} />
                     <Route path="/addvendor" element={<AddVendor />} />
-                    <Route path="/updatevendor" element={<UpdateVendor />} />
+                    <Route path="/updatevendor/:id" element={<UpdateVendor />} />
 
                 </Route>
             </Routes>

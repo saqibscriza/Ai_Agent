@@ -1,103 +1,177 @@
-import React from "react";
+import React, { useState } from "react";
+import { LoginApi } from "../../Utils/Apis";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
+import LoaderIVR from '../../Loader/LoaderIVR';
+
 
 const LogInPage = () => {
 
+      const [loaderCheck, setLoaderCheck] = useState(false);
+    
+    const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
- function togglePassword() {
-    const input = document.getElementById("passwordInput");
-    const icon = document.getElementById("eyeIcon");
 
-    if (input.type === "password") {
-      input.type = "text";
-      icon.innerHTML = `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11-3a3 3 0 110 6 3 3 0 010-6z"/>`;
-    } else {
-      input.type = "password";
-      icon.innerHTML = `<path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/>`;
+    function togglePassword() {
+        const input = document.getElementById("passwordInput");
+        const icon = document.getElementById("eyeIcon");
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.innerHTML = `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11-3a3 3 0 110 6 3 3 0 010-6z"/>`;
+        } else {
+            input.type = "password";
+            icon.innerHTML = `<path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/>`;
+        }
     }
-  }
+
+    // post Api 
+    const AdminLogInApi = async (data) => {
+        const myData = {
+            email: data.email,
+            password: data.password,
+        };
+        setLoaderCheck(true)
+        try {
+            const response = await LoginApi(myData);
+            if (response?.data?.status === "success") {
+                toast.success(response?.data?.message);
+                sessionStorage.setItem('token', response?.data?.token);
+                setLoaderCheck(false)
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 1000)
+            } else {
+                  toast.error(response?.data?.message);
+                //   setShow(true)
+                setLoaderCheck(false)
+            }
+        } catch (error) {
+            console.log(error)
+            // setLoader(false)
+        }
+    }
+
+
 
     return (
+        <>
+         {
+          loaderCheck && (
+            <LoaderIVR />
+          )
+        }
         <div className="bg-light " style={{ backgroundColor: '#4E5586' }}>
             <div className="container-sm min-vh-100 d-flex justify-content-center align-items-center">
-                <div
-                    className="row w-100  rounded-4 shadow overflow-hidden"
-                    id="main-row"
-                    style={{ maxWidth: "1150px", minHeight: "650px", backgroundColor: '#4E5586' }}
-                >
+                <div className="row w-100  rounded-4 shadow overflow-hidden" id="main-row" style={{ maxWidth: "1150px", minHeight: "650px", backgroundColor: '#4E5586' }}>
                     {/* Left Column */}
                     <div className="col-md-6 col-sm-12  bg-color-custom d-flex flex-column justify-content-center ">
                         <div className="bg-double-color d-flex flex-column justify-content-center mb-4">
                             <div className="text-center loginImg mb-3" >
                                 <img src="./public/Image/Group 80.svg" alt="" />
                             </div>
-                            <div className="w-75 mx-auto">
+
+                            <form className="w-75 mx-auto" onSubmit={handleSubmit(AdminLogInApi)}>
                                 <h5 className="orange-color mb-4">Login</h5>
+
                                 <div className="mb-3">
-                                    <label
-                                        htmlFor="exampleFormControlInput1"
-                                        className="form-label white-color"
-                                    >
-                                        Email
-                                    </label>
-                                    <div className="input-group mb-3">
+                                    <label className="form-label white-color">Email</label>
+
+                                    <div className="input-group">
                                         <span className="input-group-text bg-white border-end-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26">
-                                                <path fill="#aaa" d="M3 4C1.344 4 0 5.344 0 7v12c0 1.656 1.344 3 3 3h20c1.656 0 3-1.344 3-3V7c0-1.656-1.344-3-3-3zm0 2h20c.551 0 1 .449 1 1v.5l-11 5.938L2 7.5V7c0-.551.449-1 1-1M2 7.781l6.531 5.094l-6.406 6.563l7.813-5.563L13 15.844l3.063-1.969l7.812 5.563l-6.406-6.563L24 7.781V19a.95.95 0 0 1-.125.438c-.165.325-.486.562-.875.562H3c-.389 0-.71-.237-.875-.563A.95.95 0 0 1 2 19z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                <path fill="#000" d="M5 5h13a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3m0 1c-.5 0-.94.17-1.28.47l7.78 5.03l7.78-5.03C18.94 6.17 18.5 6 18 6zm6.5 6.71L3.13 7.28C3.05 7.5 3 7.75 3 8v9a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V8c0-.25-.05-.5-.13-.72z" />
                                             </svg>
                                         </span>
-
                                         <input
                                             type="text"
-                                            className="form-control border-start-0"
+                                            // onChange={handleEmailChange}
                                             placeholder="Enter Your Email"
+                                            className={`form-control border-start-0 ${errors.email ? "is-invalid" : ""}`}
+                                            {...register("email", {
+                                                required: "Email is required",
+                                                pattern: {
+                                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                    message: "Enter valid email address",
+                                                },
+                                            })}
                                         />
                                     </div>
+                                    {errors.email && (
+                                        <small className="text-danger">{errors.email.message}</small>
+                                    )}
                                 </div>
+
                                 <div className="mb-3">
                                     <label className="form-label white-color">Password</label>
-                                    <div className="input-group mb-3">
-                                        {/* <!-- Left Icon --> */}
+
+                                    <div className="input-group">
                                         <span className="input-group-text bg-white border-end-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                                                <g fill="none" stroke="#aaa" stroke-linecap="round" strokeWidth="1">
-                                                    <path strokeWidth="1.5" d="M15.395 21.9a94 94 0 0 1-4.424.1a95 95 0 0 1-4.424-.1c-1.678-.076-3.056-1.385-3.28-3.055C3.12 17.755 3 16.638 3 15.5s.12-2.255.267-3.345c.224-1.67 1.602-2.979 3.28-3.056C7.958 9.034 9.392 9 10.97 9s3.013.034 4.424.1c1.06.048 2 .588 2.605 1.4" />
-                                                    <path stroke-linejoin="round" strokeWidth="1.5" d="M17 14.978A1.99 1.99 0 0 1 19 13c1.105 0 2 .886 2 1.978c0 .394-.116.76-.317 1.069c-.598.919-1.683 1.795-1.683 2.887v.495M19 22h.012M6.5 9V6.5a4.5 4.5 0 0 1 9 0V9" />
-                                                    <path stroke-linejoin="round" strokeWidth="2" d="M12 15.49v.01m-4-.01v.01" />
-                                                </g>
-                                            </svg>
+                                            🔒
                                         </span>
+
                                         <input
                                             type="password"
                                             id="passwordInput"
-                                            className="form-control border-start-0 border-end-0"
+                                            // onChange={handlePassword}
                                             placeholder="6+ Strong Character"
+                                            className={`form-control border-start-0 border-end-0 ${errors.password ? "is-invalid" : ""}`}
+                                            {...register("password", {
+                                                required: "Password is required",
+                                                minLength: {
+                                                    value: 6,
+                                                    message: "Minimum 6 characters required",
+                                                },
+                                                pattern: {
+                                                    value: /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/,
+                                                    message: "Must contain 1 capital letter & 1 number",
+                                                },
+                                            })}
                                         />
-                                        <span className="input-group-text bg-white" onClick={()=> togglePassword()} style={{cursor:'pointer'}}>
-                                            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#aaa" viewBox="0 0 24 24">
-                                                <path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z" />
-                                            </svg>
-                                        </span>
 
+                                        <span
+                                            className="input-group-text bg-white"
+                                            onClick={togglePassword}
+                                            style={{ cursor: "pointer" }}>
+                                            👁
+                                        </span>
                                     </div>
+
+                                    {errors.password && (
+                                        <small className="text-danger">{errors.password.message}</small>
+                                    )}
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                        <label className="form-check-label" for="defaultCheck1" style={{ color: '#fff' }}>
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            {...register("rememberMe")}
+                                            id="defaultCheck1"
+                                        />
+                                        <label className="form-check-label text-white">
                                             Remember me
                                         </label>
                                     </div>
-                                    <div>
-                                        <a href="#" className="white-color" style={{ textDecoration: 'none' }}>Forgot password?</a>
-                                    </div>
+                                    <a href="#" className="white-color" style={{ textDecoration: "none" }}>
+                                        Forgot password?
+                                    </a>
                                 </div>
 
                                 <div className="d-flex justify-content-center mt-4">
-                                    <button type="button" className="btn orange-bg white-color w-100">
+                                    <button type="submit" className="btn orange-bg white-color w-100" >
+                                        {/* <button type="submit" className="btn orange-bg white-color w-100" onClick={(e) => AdminLogInApi(e)}> */}
                                         Login
                                     </button>
                                 </div>
-                            </div>
+                            </form>
+
                         </div>
                     </div>
 
@@ -112,7 +186,17 @@ const LogInPage = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
+
 export default LogInPage;
+
+//   setLoader(true)
+//   const formData = new FormData()
+//   formData.append('returnDate', returndate);
+//   formData.append('classId', Class);
+//   formData.append('sectionId', sectionId);
+//   formData.append('studentId', student);
+//   formData.append('bookId', book);
